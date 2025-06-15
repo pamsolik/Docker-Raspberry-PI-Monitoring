@@ -15,8 +15,9 @@ RUN apt-get update && apt-get install -y \
 COPY . .
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir --upgrade pip setuptools wheel
-RUN pip install --no-cache-dir -r requirements.txt
+RUN python3 -m pip install --upgrade pip setuptools wheel
+RUN pip3 install adafruit-circuitpython-dht
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Expose the application's port
 EXPOSE 5000
